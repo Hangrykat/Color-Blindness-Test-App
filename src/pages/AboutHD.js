@@ -39,7 +39,7 @@ const AboutHD = () => {
       </div>
 
       <div className="content-section">
-        <Grid container style={{ margin: "0 4rem" }}>
+        <Grid container>
           {hdContents
             .filter((content) => content.filter === "types")
             .map((info, i) => (
@@ -65,19 +65,12 @@ const AboutHD = () => {
       </div>
 
       <div className="content-section">
-        <Grid container style={{ margin: "0 4rem" }}>
+        <Grid container>
           {hdContents
             .filter((content) => content.filter === "test")
             .map((info, i) => (
-              <div className="gridFour-2x1">
-                <Grid item md={8}>
-                  <img
-                    className="test-imageHD"
-                    src={info.image}
-                    alt={info.altImage}
-                  />
-                </Grid>
-                <Grid item md={12}>
+              <div className="gridThree-2x1">
+                <Grid item lg={12}>
                   <Section
                     key={i}
                     title={info.title}
@@ -85,11 +78,44 @@ const AboutHD = () => {
                     className="test-sectionHD"
                   />
                 </Grid>
+                <Grid item lg={4} md={4}>
+                  <img
+                    className="test-imageHD"
+                    src={info.image}
+                    alt={info.altImage}
+                  />
+                </Grid>
               </div>
             ))}
         </Grid>
       </div>
-      
+
+      <div className="content-section">
+        <Grid container>
+          {hdContents
+            .filter((content) => content.filter === "pitch-test")
+            .map((info, i) => (
+              <div className="gridFour-2x1">
+                <Grid item lg={4} md={4}>
+                  <img
+                    className="pitch-test-imageHD"
+                    src={info.image}
+                    alt={info.altImage}
+                  />
+                </Grid>
+                <Grid item lg={12}>
+                  <Section
+                    key={i}
+                    title={info.title}
+                    description={info.infos}
+                    className="pitch-test-sectionHD"
+                  />
+                </Grid>
+              </div>
+            ))}
+        </Grid>
+      </div>
+
       <Link to="/tests" className="test-link">
         Take the Test
       </Link>
